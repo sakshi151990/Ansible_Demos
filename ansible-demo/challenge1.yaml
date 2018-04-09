@@ -1,0 +1,9 @@
+---
+- name: challenege
+  hosts: all
+  
+  tasks: 
+    - name: ansible pip
+      pip:
+        name: ansible
+        

@@ -3,5 +3,5 @@
    roles:
     - init
     - httpd
-    - php70
+ 
     
