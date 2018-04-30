@@ -1,7 +1,0 @@
-
----
-- hosts: webservers
-  tasks:
-      - name: create file
-        file: path=/tmp/test1.txt state=touch
- 
