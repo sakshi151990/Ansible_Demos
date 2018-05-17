@@ -1,0 +1,21 @@
+---
+- hosts: all
+  tasks:
+  - name: var example for all_files
+    file:
+      dest: '{{ all_file }}'
+      state: touch
+    
+- hosts: db
+  tasks:    
+  - name: var example with no definition
+    file:
+      dest: '{{db_file}}'
+      state: touch
+    when : db_file is defined 
+- hosts: web
+  tasks:    
+  - name: var example with no definition
+    file:
+      dest: '{{web_file}}'
+      state: touch

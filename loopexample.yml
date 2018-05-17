@@ -1,0 +1,34 @@
+---
+- hosts: web
+  vars:
+    files: [file1,file2,file3]
+    shapes:
+      square:
+        square1:
+          side: 4
+          colour : red
+      rectangle:
+        rect1:
+          side: 4
+          colour: green
+        rect2:
+          side: 45
+          colour: blue  
+  tasks:
+  - name:  create  files
+    file:
+      dest: /tmp/'{{item}}''
+      state: touch
+    with_items: '{{files}}'  
+  - name: iterate over dictionary shapes
+    file:
+      dest: /tmp/'{{item.value.colour}}'
+      state: touch 
+    with_dict: '{{shapes.square}}'  
+
+  - name: create file green
+    file:
+      dest: /tmp/'{{item.key}}-{{item.value.colour}}'
+      state: touch
+    with_dict: '{{shapes.rectangle}}'
+    when: 'item.value.side == 45'

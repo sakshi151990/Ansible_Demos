@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+  - name: create a template.txt file from templatesfile.j2
+    template:
+      src: templates/templatesfile.j2
+      dest: /tmp/templatesfile.txt
+    tags:
+     - create  
+- hosts: all
+  tasks:
+  - name: delete templatesfile.j2
+    file:
+      dest: /tmp/templatesfile.txt
+      state: absent
+    tags:
+     - delete       

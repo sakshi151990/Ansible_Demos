@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    name: create
+    file:
+      dest: /tmp/web1-hostvars
+      state: touch
+    when: hostvars[inventory_hostname]['hosts'] == 'web1'  
