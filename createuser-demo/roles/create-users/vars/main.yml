@@ -1,0 +1,18 @@
+---
+users:
+    admin:
+      state: present
+      comment: "Administrator User"
+      shell: "/bin/bash"
+      uid: 5110
+      gid: 5110
+      password: "password"
+      sshkey: "publickey"
+    testuser:
+      state: present
+      comments: "Example User"
+      shell: "/bin/bash"
+      uid: 5102
+      gid: 5102
+      password: "password"
+      sshkey: "publickey"
