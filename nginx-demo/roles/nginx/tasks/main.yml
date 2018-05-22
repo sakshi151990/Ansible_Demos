@@ -6,4 +6,8 @@
     template:
       src: templates/nginx.j2
       dest: /etc/nginx/nginx.conf
-    notify: restart nginx  
+    notify: restart nginx 
+  - name: Deploy Welcome.html
+    copy: 
+      src: Welcome.html 
+      dest: /usr/share/nginx/html   
